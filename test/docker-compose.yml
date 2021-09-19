@@ -1,0 +1,9 @@
+version: '3'
+services:
+
+  app:
+    image: python
+    tty: true
+    volumes:
+      - ../make_venv.sh:/test/make_venv.sh
+    working_dir: /test

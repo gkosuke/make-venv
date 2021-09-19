@@ -1,0 +1,62 @@
+= make_venv
+
+venv(Python仮想環境)を構築するスクリプト。
+
+近年、Pythonのパッケージ管理ライブラリには poetry や pyflow などがあるが、それらはまだ発展途上に感じる。
+その背景を踏まえ、個人的に venv + requirements.txt をしばらく使いたかったので make_venv を作成した。
+
+== 機能
+* venv を再生成
+* requirements.txt のパッケージをインストール
+
+== 使い方(Linux)
+
+. Python3 を導入する
+
+. link:make_venv.sh?raw=true[make_venv.sh] をダウンロードし、Pythonプロジェクトディレクトリへ格納
++
+[source, shell]
+----
+wget https://raw.githubusercontent.com/gsuke/make-venv/main/make_venv.sh
+----
+
+. (必要に応じてSettingsを変更)
+
+. requirements.txt を作成し、必要なライブラリを入力
+
+. `./make_venv.sh` を実行
+
+== 使い方(Windows)
+
+. 以下の実行環境を導入する
+
+* https://www.python.org/[Python]
+
+* PowerShell (7.2～)
+.. https://www.microsoft.com/ja-jp/p/powershell/9mz1snwt0n5d よりインストールする
+.. Powershellの初回起動時は以下のコマンドを叩き、実行ポリシーを変更する。
++
+[source, powershell]
+----
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
+----
+
+. link:make_venv.ps1?raw=true[make_venv.ps1] をダウンロードし、Pythonプロジェクトディレクトリへ格納
++
+[source, powershell]
+----
+Invoke-WebRequest https://raw.githubusercontent.com/gsuke/make-venv/main/make_venv.ps1 -OutFile make_venv.ps1
+----
+
+. (必要に応じてSettingsを変更)
+
+. requirements.txt を作成し、必要なライブラリを入力
+
+. PowerShellで `.\make_venv.ps1` を実行
+
+== 環境
+
+以下の環境で動作確認済み。
+
+* Windows 10
+* Debian 11 (link:test/docker-compose.yml[docker-compose.yml] 参照)
